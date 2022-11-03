@@ -1,38 +1,51 @@
 public class Carro {
+    
     private String _marca;
     private String _modelo;
     private int _velocidade = 0;
+    private int _velocidadeAtual=0;
+    private int _somaVelocidade = 0;
+    private int _reduzidoVelocidade= 0 ;
 
     public Carro(String Marca, String Modelo) {
-        _marca = Marca;
-        _modelo = Modelo;
+        this._marca = Marca;
+        this._modelo = Modelo;
+    }
+    
+    private void AumentoVelocidade(int velocidadeAtual, int valor,int velocidade){
+        System.out.println("A velocidade atual é " + velocidadeAtual + " Km/H");
+        System.out.println("Valor aumentado é " + valor);
+        System.out.println("Valor atualizado é " + velocidade);
+    }
+    private void DiminuirVelocidade(int velocidadeAtual, int valor,int velocidade){
+        System.out.println("A velocidade atual é " + this._velocidadeAtual + " Km/H");
+        System.out.println("Valor informado é " + valor);
+        System.out.println("Valor atualizado é " + this._velocidade);
     }
 
     public void Acelerar(int valor) {
-        int velocidadeAtual = _velocidade;
-        int somaVelocidade = _velocidade + valor;
-        if (somaVelocidade >= 200) {
-            _velocidade = 200;
+        this._velocidadeAtual = this._velocidade;
+        this._somaVelocidade = this._velocidade + valor;
+        if (_somaVelocidade >= 200) {
+            this._velocidade = 200;
         } else {
-            _velocidade = somaVelocidade;
+            this._velocidade = _somaVelocidade;
         }
-        System.out.println("A velocidade atual é " + velocidadeAtual + " Km/H");
-        System.out.println("Valor aumentado é " + valor);
-        System.out.println("Valor atualizado é " + _velocidade);
+        AumentoVelocidade(this._velocidadeAtual, valor,this._velocidade);
+        
 
     }
+    
 
     public void Frear(int valor) {
-        int velocidadeAtual = _velocidade;
-        int reduzidoVelocidade = _velocidade - valor;
-        if (reduzidoVelocidade <= 0) {
-            _velocidade = 0;
+        this._velocidadeAtual = this._velocidade;
+        this._reduzidoVelocidade = this._velocidade - valor;
+        if (this._reduzidoVelocidade <= 0) {
+            this._velocidade = 0;
         } else {
-            _velocidade = reduzidoVelocidade;
+            this._velocidade = this._reduzidoVelocidade;
         }
-        System.out.println("A velocidade atual é " + velocidadeAtual + " Km/H");
-        System.out.println("Valor informado é " + valor);
-        System.out.println("Valor atualizado é " + _velocidade);
+        DiminuirVelocidade(this._velocidadeAtual,valor,this._velocidade);
 
     }
     
