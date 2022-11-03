@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class ExercicioLPOO1 {
     public static void main(String[] args) throws Exception {
         Carro c1 = new Carro("FIAT", "Palio");
@@ -10,7 +8,5 @@ public class ExercicioLPOO1 {
         c1.Frear(100);
         c1.Frear(150);
         c1.printStatus();
-
     }
-
 }
